@@ -7,12 +7,7 @@ const devConfig = {
     filename: 'js/[name].[hash].js'
   },
   devtool: 'cheap-module-source-map',
-  resolve: {
-    alias: {
-      'react-dom': '@hot-loader/react-dom'
-    }
-  },
-  // TODO: devServer, HotModuleReplacementPlugin, react-hot-loader, module.hot.accept
+  // TODO: devServer, HotModuleReplacementPlugin, module.hot.accept
   devServer: {
     contentBase: distPath,
     historyApiFallback: true,

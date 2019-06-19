@@ -61,12 +61,12 @@ const styleRule = (() => {
       {
         loader: MiniCssExtractPlugin.loader
       },
-      /* {
+      {
         loader: 'style-loader',
         options: {
           sourceMap: sourceMap
         }
-      }, */
+      },
       {
         loader: 'css-loader',
         options: {

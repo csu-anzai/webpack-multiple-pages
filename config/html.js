@@ -9,7 +9,7 @@ const htmlList = [
     output: {
       html: 'index',
       htmlTitle: title,
-      js: 'app'
+      js: 'index'
     }
   }
 ];

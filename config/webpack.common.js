@@ -56,12 +56,12 @@ const styleRule = (() => {
       {
         loader: MiniCssExtractPlugin.loader
       },
-      {
+      /* {
         loader: 'style-loader',
         options: {
           sourceMap: sourceMap
         }
-      },
+      }, */
       {
         loader: 'css-loader',
         options: {
@@ -137,7 +137,7 @@ const commonConfig = {
   },
   plugins: HtmlWebpackPluginList.concat([
     new FaviconsWebpackPlugin({
-      logo: path.resolve(publicPath, 'favicon.png'),
+      logo: path.resolve(publicPath, 'favicon.svg'),
       prefix: 'assets/icons-[hash]/',
       icons: {
         android: true,

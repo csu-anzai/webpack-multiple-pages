@@ -2,7 +2,7 @@ import './styles/index.scss';
 
 const header = `
 <div class="header">
-  <h1>header</h1>
+  <a href="./login.html">Login</a>
 </div>
 `;
 

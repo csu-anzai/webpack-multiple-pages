@@ -5,20 +5,19 @@ const FaviconsWebpackPlugin = require('favicons-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 const { prodSourceMap } = require('./');
-const { htmlList, faviconAppTitle } = require('./html');
+const { pages } = require('./pages');
 const { env, prodMode } = require('./env');
 const { public: publicPath, src: srcPath, dist: distPath } = require('./paths');
 
 /**
- * { app: [ '@babel/polyfill', 'root/src/pages/index.js' ] }
+ * { app: [ '@babel/polyfill', 'root/src/pages/index/index.js' ] }
  */
 const entry = (() => {
   let entry = {};
-  for (const item of htmlList) {
-    const inputJSName = item.input.js;
-    const outputJSName = item.output.js;
-    const entryPath = path.resolve(srcPath, 'pages', inputJSName);
-    entry[outputJSName] = ['@babel/polyfill', entryPath];
+  for (const page of pages) {
+    const { name } = page;
+    const entryPath = path.resolve(srcPath, 'pages', name, 'index');
+    entry[name] = ['@babel/polyfill', entryPath];
   }
   return entry;
 })();
@@ -32,20 +31,16 @@ const HtmlWebpackPluginList = (() => {
     removeComments: true
   };
   const minify = prodMode ? minifyOptions : false;
-  for (const item of htmlList) {
-    const { input, output } = item;
-    const inputHTML = input.html;
-    const outputHTML = output.html;
-    const title = output.htmlTitle;
-    const outputJSName = output.js;
-    const template = path.resolve(srcPath, 'pages/index', `${inputHTML}.ejs`);
+  for (const page of pages) {
+    const { name, title } = page;
+    const template = path.resolve(srcPath, 'pages', name, 'index.ejs');
     list.push(
       new HtmlWebpackPlugin({
         title,
-        filename: `${outputHTML}.html`,
+        filename: `${name}.html`,
         template,
         minify,
-        chunks: ['vendor', outputJSName]
+        chunks: ['vendor', name]
       })
     );
   }
@@ -144,7 +139,6 @@ const commonConfig = {
     new FaviconsWebpackPlugin({
       logo: path.resolve(publicPath, 'favicon.png'),
       prefix: 'assets/icons-[hash]/',
-      title: faviconAppTitle,
       icons: {
         android: true,
         appleIcon: true,

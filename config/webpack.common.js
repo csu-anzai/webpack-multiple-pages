@@ -23,8 +23,6 @@ const entry = (() => {
   return entry;
 })();
 
-console.log(entry);
-
 const HtmlWebpackPluginList = (() => {
   let list = [];
   const minifyOptions = {
@@ -40,7 +38,7 @@ const HtmlWebpackPluginList = (() => {
     const outputHTML = output.html;
     const title = output.htmlTitle;
     const outputJSName = output.js;
-    const template = path.resolve(publicPath, `${inputHTML}.ejs`);
+    const template = path.resolve(srcPath, 'pages/index', `${inputHTML}.ejs`);
     list.push(
       new HtmlWebpackPlugin({
         title,

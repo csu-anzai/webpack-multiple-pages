@@ -10,18 +10,20 @@ const { env, prodMode } = require('./env');
 const { public: publicPath, src: srcPath, dist: distPath } = require('./paths');
 
 /**
- * { app: [ '@babel/polyfill', 'root/src/index.js' ] }
+ * { app: [ '@babel/polyfill', 'root/src/pages/index.js' ] }
  */
 const entry = (() => {
   let entry = {};
   for (const item of htmlList) {
     const inputJSName = item.input.js;
     const outputJSName = item.output.js;
-    const entryPath = path.resolve(srcPath, inputJSName);
+    const entryPath = path.resolve(srcPath, 'pages', inputJSName);
     entry[outputJSName] = ['@babel/polyfill', entryPath];
   }
   return entry;
 })();
+
+console.log(entry);
 
 const HtmlWebpackPluginList = (() => {
   let list = [];

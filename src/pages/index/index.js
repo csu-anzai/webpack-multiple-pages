@@ -1,9 +1,10 @@
 import '../../styles/index';
 import '../../styles/global.scss';
 
-import headerTemplate from '../../components/header/index.handlebars';
-import '../../components/header/styles/index.scss';
+import headerTemplate from '../../components/headerTemplate';
 
-const html = headerTemplate();
+import helloHtml from './components/helloHtml';
 
-document.getElementById('root').innerHTML = html;
+const headerHtml = headerTemplate();
+
+document.getElementById('root').innerHTML = [headerHtml, helloHtml].join('');

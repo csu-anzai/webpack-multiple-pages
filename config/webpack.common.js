@@ -33,7 +33,7 @@ const HtmlWebpackPluginList = (() => {
   const minify = prodMode ? minifyOptions : false;
   for (const page of pages) {
     const { name, title } = page;
-    const template = path.resolve(srcPath, 'pages', name, 'index.ejs');
+    const template = path.resolve(publicPath, 'index.handlebars');
     list.push(
       new HtmlWebpackPlugin({
         title,
@@ -107,6 +107,12 @@ const commonConfig = {
             }
           }
         ]
+      },
+      {
+        test: /\.handlebars$/,
+        use: {
+          loader: 'handlebars-loader'
+        }
       },
       styleRule,
       {

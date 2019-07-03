@@ -1,5 +1,9 @@
 import '../../styles/index';
 import '../../styles/global.scss';
-import header from '../../components/header';
 
-document.getElementById('header').innerHTML = header;
+import headerTemplate from '../../components/header/index.handlebars';
+import '../../components/header/styles/index.scss';
+
+const html = headerTemplate();
+
+document.getElementById('root').innerHTML = html;

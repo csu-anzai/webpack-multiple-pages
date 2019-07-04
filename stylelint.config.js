@@ -1,5 +1,5 @@
 const config = {
-  extends: 'stylelint-config-standard',
+  extends: ['stylelint-config-standard', 'stylelint-prettier/recommended'],
   ignoreFiles: [
     '**/.git/',
     '**/.svn/',
@@ -13,8 +13,8 @@ const config = {
     '**/jsconfig.json',
     '**/build/',
     '**/dist/',
-    '**/*.min.*',
-  ],
+    '**/*.min.*'
+  ]
 };
 
 module.exports = config;

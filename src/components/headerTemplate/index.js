@@ -1,4 +1,9 @@
 import template from './index.hbs';
-import './index.scss';
+import styles from './index.scss';
 
-export default template;
+import merge from 'lodash/merge';
+
+export default context => {
+  const newTemplate = merge({}, { styles }, context);
+  return template(newTemplate);
+};

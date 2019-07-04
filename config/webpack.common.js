@@ -65,6 +65,7 @@ const styleRule = (() => {
       {
         loader: 'css-loader',
         options: {
+          modules: true,
           sourceMap: sourceMap
         }
       },

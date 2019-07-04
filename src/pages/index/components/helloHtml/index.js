@@ -1,7 +1,7 @@
 import template from './index.hbs';
-import './index.scss';
+import styles from './index.scss';
 import logo from '../../../../assets/images/logo.svg';
 
-const html = template({ logo });
+const html = template({ styles, logo });
 
 export default html;

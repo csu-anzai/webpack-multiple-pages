@@ -1,6 +1,4 @@
-const config = {
+module.exports = {
   singleQuote: true,
-  endOfLine: "lf"
+  endOfLine: 'lf'
 };
-
-module.exports = config;

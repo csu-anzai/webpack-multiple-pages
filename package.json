@@ -2,30 +2,53 @@
   "name": "webpack-multiple-pages",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "cross-env NODE_ENV=development webpack-dev-server --progress --color",
-    "build": "cross-env NODE_ENV=production webpack --progress --color"
+  "homepage": "https://github.com/acmilank22/webpack-multiple-pages#readme",
+  "bugs": {
+    "url": "https://github.com/acmilank22/webpack-multiple-pages/issues"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/acmilank22/webpack-multiple-pages.git"
   },
-  "author": "Dongyi An",
   "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/acmilank22/webpack-multiple-pages/issues"
+  "author": "Dongyi An",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "cross-env NODE_ENV=development webpack-dev-server --progress --color",
+    "build": "cross-env NODE_ENV=production webpack --progress --color",
+    "prettier": "npx prettier \"**/*.{js,jsx,html,vue,css,scss,json,md}\"",
+    "eslint": "npx eslint --fix \"**/*.{js,jsx,html,vue}\"",
+    "stylelint": "npx stylelint --fix \"**/*.{css,scss,js,jsx,vue}\"",
+    "lint": "npm run prettier && npm run eslint && npm run stylelint"
   },
-  "homepage": "https://github.com/acmilank22/webpack-multiple-pages#readme",
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "dependencies": {
+    "@babel/polyfill": "^7.4.4",
+    "autoprefixer": "^9.6.1",
+    "handlebars": "^4.1.2",
+    "lodash": "^4.17.15",
+    "qs": "^6.8.0",
+    "whatwg-fetch": "^3.0.0"
+  },
   "devDependencies": {
     "@babel/core": "^7.5.5",
     "@babel/preset-env": "^7.5.5",
+    "babel-eslint": "^10.0.3",
     "babel-loader": "^8.0.6",
     "clean-webpack-plugin": "^3.0.0",
     "cross-env": "^5.2.1",
     "css-loader": "^3.2.0",
     "eslint": "^6.3.0",
+    "eslint-config-prettier": "^6.1.0",
+    "eslint-plugin-html": "^6.0.0",
+    "eslint-plugin-import": "^2.18.2",
+    "eslint-plugin-node": "^9.2.0",
+    "eslint-plugin-prettier": "^3.1.0",
     "favicons-webpack-plugin": "1.0.1",
     "file-loader": "^4.2.0",
     "handlebars-loader": "^1.7.1",
@@ -40,19 +63,15 @@
     "prettier": "^1.18.2",
     "sass-loader": "^8.0.0",
     "style-loader": "^1.0.0",
+    "stylelint": "^10.1.0",
+    "stylelint-config-prettier": "^5.2.0",
+    "stylelint-config-standard": "^18.3.0",
+    "stylelint-prettier": "^1.1.1",
     "terser-webpack-plugin": "^1.4.1",
     "url-loader": "^2.1.0",
     "webpack": "^4.39.3",
     "webpack-cli": "^3.3.7",
     "webpack-dev-server": "^3.8.0",
     "webpack-merge": "^4.2.2"
-  },
-  "dependencies": {
-    "@babel/polyfill": "^7.4.4",
-    "autoprefixer": "^9.6.1",
-    "handlebars": "^4.1.2",
-    "lodash": "^4.17.15",
-    "qs": "^6.8.0",
-    "whatwg-fetch": "^3.0.0"
   }
 }

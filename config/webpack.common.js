@@ -78,9 +78,11 @@ const styleRule = (() => {
       {
         loader: 'sass-loader',
         options: {
-          outputStyle: 'expanded',
-          sourceMap: sourceMap,
-          sourceMapContents: sourceMap
+          sassOptions: {
+            outputStyle: 'expanded',
+            sourceMapContents: sourceMap
+          },
+          sourceMap: sourceMap
         }
       }
     ]
